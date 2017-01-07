@@ -1,4 +1,4 @@
-# Datepicker-and-Checkbox
+# Datepicker-Checkbox-Radio Button
 
 <h3>CHECKBOX</h3>
 ```c
