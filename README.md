@@ -52,7 +52,7 @@ Take Button ->create outlet and action
 @property (weak, nonatomic) IBOutlet UIButton *btndate;
 - (IBAction)BtnDate:(id)sender;
 
-import class #import "THDatePickerViewController.h"
+import class #import "THDatePickerViewController.h" and give delegate <THDatePickerDelegate>
 
 property define:
 @property (nonatomic, strong) THDatePickerViewController * datePicker;
@@ -130,5 +130,87 @@ property define:
 - (void)datePicker:(THDatePickerViewController *)datePicker selectedDate:(NSDate *)selectedDate {
     NSLog(@"Date selected: %@",[_formatter stringFromDate:selectedDate]);
 }
+
+```
+<h3>RADIO BUTTON</h3>
+
+```c
+@property (weak, nonatomic) IBOutlet UIButton *r1;
+@property (weak, nonatomic) IBOutlet UIButton *r2;
+@property (weak, nonatomic) IBOutlet UIButton *r3;
+-(void)radiobuttonSelected:(id)sender;
+```
+```c
+-(void)radiobuttonSelected:(id)sender
+{
+    switch ([sender tag])
+    {
+        case 0:
+            if([_r1 isSelected]==YES)
+            {
+                [_r1 setSelected:NO];
+                [_r2 setSelected:YES];
+                [_r3 setSelected:YES];
+            }
+            else{
+                [_r1 setSelected:YES];
+                [_r2 setSelected:NO];
+                [_r3 setSelected:NO];
+            }
+            
+            break;
+        case 1:
+            if([_r2 isSelected]==YES)
+            {
+                [_r2 setSelected:NO];
+                [_r1 setSelected:YES];
+                [_r3 setSelected:YES];
+            }
+            else{
+                [_r2 setSelected:YES];
+                [_r1 setSelected:NO];
+                [_r3 setSelected:NO];
+            }
+            
+            break;
+        case 2:
+            if([_r3 isSelected]==YES)
+            {
+                [_r3 setSelected:NO];
+                [_r1 setSelected:YES];
+                [_r2 setSelected:YES];
+            }
+            else{
+                [_r3 setSelected:YES];
+                [_r1 setSelected:NO];
+                [_r2 setSelected:NO];
+            }
+            
+            break;
+        default:
+            break;
+    }
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+
+{
+    
+    [_r1 setTag:0];
+    [_r1 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1.png"] forState:UIControlStateNormal];
+    [_r1 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1 copy.png"] forState:UIControlStateSelected];
+    [_r1 addTarget:self action:@selector(radiobuttonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_r2 setTag:1];
+    [_r2 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1.png"] forState:UIControlStateNormal];
+    [_r2 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1 copy.png"] forState:UIControlStateSelected];
+    [_r2 addTarget:self action:@selector(radiobuttonSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_r3 setTag:2];
+    [_r3 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1.png"] forState:UIControlStateNormal];
+    [_r3 setBackgroundImage:[UIImage imageNamed:@"Ellipse 1 copy.png"] forState:UIControlStateSelected];
+    [_r3 addTarget:self action:@selector(radiobuttonSelected:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 
 ```
