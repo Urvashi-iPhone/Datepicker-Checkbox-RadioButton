@@ -27,10 +27,38 @@ then create outlet of this BEMCheckBox view and implement this
     self.checkbox.offAnimationType = BEMAnimationTypeBounce;
     
 }
+or
 
-- (void)didTapCheckBox:(BEMCheckBox*)checkBox
+-(void)checkbox_Method
 {
-    NSLog(@"checked");
+    [_chk1 setImage:[UIImage imageNamed:@"unchecked.png"]
+           forState:UIControlStateNormal];
+    [_chk1 setImage:[UIImage imageNamed:@"checked.png"]
+           forState:UIControlStateSelected];
+   
+    [_chk2 setImage:[UIImage imageNamed:@"unchecked.png"]
+           forState:UIControlStateNormal];
+    [_chk2 setImage:[UIImage imageNamed:@"checked.png"]
+           forState:UIControlStateSelected];
+
+    [_chk3 setImage:[UIImage imageNamed:@"unchecked.png"]
+           forState:UIControlStateNormal];
+    [_chk3 setImage:[UIImage imageNamed:@"checked.png"]
+           forState:UIControlStateSelected];
+
+ 
+}
+- (IBAction)chk1:(id)sender
+{
+    [(UIButton *)sender setSelected:![(UIButton *)sender isSelected]];
+}
+- (IBAction)chk2:(id)sender
+{
+     [(UIButton *)sender setSelected:![(UIButton *)sender isSelected]];
+}
+- (IBAction)chk3:(id)sender
+{
+     [(UIButton *)sender setSelected:![(UIButton *)sender isSelected]];
 }
 
 ```
